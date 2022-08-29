@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-export default function CashAppPage() {
+export default function CashAppPageWorking() {
 
     useEffect(() => {
 
@@ -98,32 +98,7 @@ export default function CashAppPage() {
             console.error('Initializing Cash App Pay failed', e);
           }
           
-          if (cashAppPay) {
-            console.log('Payment  - ', cashAppPay);
-            cashAppPay.addEventListener(
-              'ontokenization',
-              async function ({ detail }) {
-                const tokenResult = detail.tokenResult;
-                if (tokenResult.status === 'OK') {
-                  const paymentResults = await createPayment(tokenResult.token);
-                  console.log('Payment Success - ', paymentResults);
-                  displayPaymentResults('SUCCESS');
-                  console.debug('Payment Success', paymentResults);
-                } else {
-                  let errorMessage = `Tokenization failed with status: ${tokenResult.status}`;
-  
-                  if (tokenResult.errors) {
-                    errorMessage += ` and errors: ${JSON.stringify(
-                      tokenResult.errors
-                    )}`;
-                  }
-                  console.log('Payment error - ', errorMessage);
-                  displayPaymentResults('FAILURE');
-                  throw new Error(errorMessage);
-                }
-              }
-            );
-          }
+          
         //});      
                    
         

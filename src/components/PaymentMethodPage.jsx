@@ -7,8 +7,12 @@ export default function PaymentMethodPage() {
     const navigate = useNavigate();    
     const dispatch = useDispatch(); 
     
-    const handleCashAppPay = () => { 
+  const handleCashAppPay = () => { 
       navigate('/cash-app-pay');
+  }
+  
+   const handleCashAppPayWorking = () => { 
+      navigate('/cash-app-pay-working');
   }
 
     return (
@@ -23,6 +27,17 @@ export default function PaymentMethodPage() {
                     onClick={handleCashAppPay}
                 >
                     <h4>Cash App Pay</h4> <br/>
+                </button>
+            </div>
+			
+			 <div className="row mt-5 d-flex justify-content-center">               
+                   
+            <button 
+                    className="col-8 rounded-3 pt-3 text-center link border-0" 
+                    style={{backgroundColor: "#EFF0F6", textDecoration: "none"}}
+                    onClick={handleCashAppPayWorking}
+                >
+                    <h4>Cash App Pay - Working</h4> <br/>
                 </button>
             </div>
         </div>
